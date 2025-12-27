@@ -1,0 +1,258 @@
+/**
+ * 移动端响应式样式
+ * 响应式布局、移动端导航
+ */
+
+/* 移动端头部 */
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1001;
+    padding: 0 16px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-header .mobile-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.mobile-menu-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 移动端头部右侧按钮组 */
+.mobile-header-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.mobile-toc-btn,
+.mobile-theme-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 移动端遮罩 */
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.mobile-overlay.show {
+    display: block;
+}
+
+/* 响应式布局 - 平板 */
+@media (max-width: 1024px) {
+    .toc-sidebar {
+        width: 200px;
+    }
+
+    .toc-sidebar.collapsed {
+        width: 0;
+        padding: 0;
+        border: none;
+    }
+}
+
+/* 响应式布局 - 移动端 */
+@media (max-width: 768px) {
+    /* 显示移动端头部 */
+    .mobile-header {
+        display: flex;
+    }
+
+    /* 主容器调整 */
+    .container {
+        padding-top: 56px;
+    }
+
+    /* 左侧边栏 - 移动端抽屉 */
+    .sidebar {
+        position: fixed;
+        top: 56px;
+        left: -280px;
+        width: 280px;
+        height: calc(100vh - 56px);
+        z-index: 1000;
+        transition: left 0.3s ease;
+        border-right: 1px solid var(--border-color);
+    }
+
+    .sidebar.mobile-open {
+        left: 0;
+    }
+
+    .sidebar.collapsed {
+        left: -280px;
+        width: 280px;
+    }
+
+    /* 隐藏桌面端收缩按钮 */
+    .sidebar-toggle {
+        display: none;
+    }
+
+    /* 内容区全宽 */
+    .main-content {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 20px 16px;
+    }
+
+    /* 右侧TOC - 移动端抽屉模式 */
+    .toc-sidebar {
+        display: flex;
+        position: fixed;
+        top: 56px;
+        right: -280px;
+        width: 280px;
+        height: calc(100vh - 56px);
+        z-index: 1000;
+        transition: right 0.3s ease;
+        border-left: 1px solid var(--border-color);
+    }
+
+    .toc-sidebar.mobile-open {
+        right: 0;
+    }
+
+    .toc-toggle {
+        display: none;
+    }
+
+    /* 主题按钮调整 */
+    .theme-toggle-btn {
+        bottom: 16px;
+        left: 16px;
+        width: 44px;
+        height: 44px;
+    }
+
+    /* 主题面板调整 */
+    .theme-panel {
+        left: 16px;
+        right: 16px;
+        width: auto;
+        bottom: 70px;
+    }
+
+    /* 文章内容调整 */
+    .article-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .article-content h3 {
+        font-size: 1.25rem;
+    }
+
+    /* 代码块调整 */
+    .article-content pre {
+        border-radius: 8px;
+        margin: 1rem -16px;
+        border-radius: 0;
+    }
+
+    .code-wrapper {
+        border-radius: 0;
+        margin: 1rem -16px;
+    }
+
+    /* 表格响应式 */
+    .article-content table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* 响应式布局 - 小屏手机 */
+@media (max-width: 480px) {
+    .mobile-header {
+        padding: 0 12px;
+    }
+
+    .main-content {
+        padding: 16px 12px;
+    }
+
+    .article-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .article-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .theme-panel {
+        left: 12px;
+        right: 12px;
+    }
+
+    .theme-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .color-inputs {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .sidebar,
+    .toc-sidebar,
+    .mobile-header,
+    .theme-toggle-btn,
+    .theme-panel,
+    .sidebar-toggle,
+    .toc-toggle {
+        display: none !important;
+    }
+
+    .main-content {
+        margin: 0;
+        padding: 0;
+    }
+
+    .article-content {
+        max-width: 100%;
+    }
+}

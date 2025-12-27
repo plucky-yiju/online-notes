@@ -1,0 +1,39 @@
+[
+  {
+    "type": "folder",
+    "name": "前端",
+    "path": "前端",
+    "children": [
+      {
+        "type": "file",
+        "name": "css-flexbox.md",
+        "title": "css-flexbox",
+        "path": "前端/css-flexbox.md"
+      },
+      {
+        "type": "file",
+        "name": "javascript-basics.md",
+        "title": "javascript-basics",
+        "path": "前端/javascript-basics.md"
+      }
+    ]
+  },
+  {
+    "type": "file",
+    "name": "设计模式.md",
+    "title": "设计模式",
+    "path": "设计模式.md"
+  },
+  {
+    "type": "file",
+    "name": "markdown-guide.md",
+    "title": "markdown-guide",
+    "path": "markdown-guide.md"
+  },
+  {
+    "type": "file",
+    "name": "welcome.md",
+    "title": "welcome",
+    "path": "welcome.md"
+  }
+]

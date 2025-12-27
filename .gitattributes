@@ -1,0 +1,23 @@
+# 自动检测文本文件，并确保它们在检出时使用LF行尾
+* text=auto
+
+# 明确指定文本文件的行尾
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.xml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# 明确指定二进制文件，防止Git错误地转换它们
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
