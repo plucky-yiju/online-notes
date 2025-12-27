@@ -3,22 +3,22 @@
  */
 const BlogConfig = {
     // 博客标题
-    title: '笔记博客',
+    title: 'Plucky的博客',
 
     // GitHub仓库配置（用于动态读取文件目录）
     github: {
         // 仓库所有者（你的GitHub用户名）
-        owner: '',
+        owner: 'plucky-yiju',
         // 仓库名称
-        repo: '',
+        repo: 'online-notes',
         // 分支名称
-        branch: 'main',
+        branch: 'master',
         // posts目录路径
         postsPath: 'posts'
     },
 
     // 是否使用GitHub API（设为false则使用本地posts.json）
-    useGitHubAPI: false,
+    useGitHubAPI: true,
 
     // 代码块配置
     codeBlock: {
